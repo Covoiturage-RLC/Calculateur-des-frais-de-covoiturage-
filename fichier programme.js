@@ -8,7 +8,7 @@ const ctTots = document.getElementById("ctTots");
 const ctTotv = document.getElementById("ctTotv");
 const ctBpp = document.getElementById("ctBpp");
 const ctRpp = document.getElementById("ctRpp");
-const ctDep10E = document.getElementById("ctDep10E");
+const ctDep12E = document.getElementById("ctDep12E");
 const ctRetp = document.getElementById("ctRetp");
 const ctRlc = document.getElementById("ctRlc");
 const btnValider = document.getElementById("btnValider");
@@ -84,11 +84,11 @@ btnValider.addEventListener("click", (e) => {
      Math.round ((Number(ctTots.value) / Number(nbPass.value)) * 100) / 100;
     ctRpp.value =
       Math.round (((Number(ctTotv.value) / 4)) * 100) / 100;
-    ctDep10E.value = 
+    ctDep12E.value = 
     result = Math.max(0,
-    Math.round (((Number(ctBpp.value)) - 10) * 100) / 100);
+    Math.round (((Number(ctBpp.value)) - 12) * 100) / 100);
     ctRetp.value =
-      Math.round (Number(ctBpp.value) - Number(ctDep10E.value));
+      Math.round (Number(ctBpp.value) - Number(ctDep12E.value));
     ctRlc.value =
       Math.round (Number(ctTots.value) - ((Number(ctRetp.value) * Number(nbPass.value))));
         
