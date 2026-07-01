@@ -225,6 +225,7 @@ Box Eléments de Calcul
   grid-template-rows: 20% 75% 5%;
   grid-template-areas:
     "h3 h3"
+    "bLEC bDEC"
     "bLEC bDEC";
 }
 #boxLabelResultat {
