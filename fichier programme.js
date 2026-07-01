@@ -12,6 +12,8 @@ const ctDep12E = document.getElementById("ctDep12E");
 const ctRetp = document.getElementById("ctRetp");
 const ctRlc = document.getElementById("ctRlc");
 const btnValider = document.getElementById("btnValider");
+const debcagnoRLC = document.getElementById("debcagnoRLC");
+const crecagnoRLC = document.getElementById("crecagnoRLC");
 
 //--------------------------------
 // Stockage et lecture des Data
