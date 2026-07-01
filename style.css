@@ -236,7 +236,27 @@ Box Eléments de Calcul
   margin: 3px;
   padding: 5px;
   min-height: 5px;
+  }
+#boxLabelResultat {
+  grid-area: bLEC;
+  display: grid;
+  grid-template-rows: auto;
+  border: 1px dashed var(--color2);
+  border-radius: 10px;
+  margin: 3px;
+  padding: 5px;
+  min-height: 5px;
 }
+#boxDataResultat {
+  grid-area: bDEC;
+  display: grid;
+  grid-template-rows: auto;
+  border: 1px dashed var(--color2);
+  border-radius: 10px;
+  margin: 3px;
+  padding: 5px;
+  min-height: 5px;
+  }
 #boxDataResultat {
   grid-area: bDEC;
   display: grid;
