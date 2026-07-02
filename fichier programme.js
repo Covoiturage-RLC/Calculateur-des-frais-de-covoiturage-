@@ -79,7 +79,7 @@ btnValider.addEventListener("click", (e) => {
     prxKm.value = "";
   } else {
     ctTots.value =
-      Number(((disTot.value) * Number(prxKm.value)) + Number(peage.value)) * Number(nbVoit.value);
+     Math.round ((Number(((disTot.value) * Number(prxKm.value)) + Number(peage.value)) * Number(nbVoit.value)) * 100) / 100;
     ctTotv.value =
       Number(ctTots.value) / Number(nbVoit.value);
     ctBpp.value =
