@@ -93,6 +93,7 @@ btnValider.addEventListener("click", (e) => {
       Math.round (Number(ctBpp.value) - Number(ctDep12E.value));
     crecagnoRLC.value =
     (Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value)));
+    resultat = Math.max(0, resultat);
     debcagnoRLC.value =
     (Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value)));
     ctRlc.value =
