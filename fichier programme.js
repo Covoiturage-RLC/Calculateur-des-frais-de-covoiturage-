@@ -71,9 +71,9 @@ btnValider.addEventListener("click", (e) => {
     nbPers.value = "";
   } else {
     nbVoit.value = 
-    Math.ceil(Number(nbPers.value) / 5);
+      Math.ceil(Number(nbPers.value) / 5);
     nbPass.value = 
-    Number (nbPers.value) - (nbVoit.value);  
+      Number (nbPers.value) - (nbVoit.value);  
   } if (prxKm.value == 0) {
     alert("Le prix au km doit être supérieur à 0 !");
     prxKm.value = "";
@@ -83,19 +83,18 @@ btnValider.addEventListener("click", (e) => {
     ctTotv.value =
       Math.round (Number(ctTots.value) / Number(nbVoit.value) * 100) / 100;
     ctBpp.value =
-     Math.round ((Number(ctTots.value) / Number(nbPass.value)) * 100) / 100;
+      Math.round ((Number(ctTots.value) / Number(nbPass.value)) * 100) / 100;
     ctRpp.value =
       Math.round (((Number(ctTotv.value) / 4)) * 100) / 100;
     ctDep12E.value = 
     result = Math.max(0,
-    Math.round (((Number(ctBpp.value)) - 12) * 100) / 100);
+      Math.round (((Number(ctBpp.value)) - 12) * 100) / 100);
     ctRetp.value =
       Math.round (Number(ctBpp.value) - Number(ctDep12E.value));
     debcagnoRLC.value =
-    Math.abs (Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value)));
+      Math.abs (Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value)));
     crecagnoRLC.value =
-    Math.round (Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value))) * 100) / 100;
-    resultat = Math.max(0, resultat);
+      Math.max(0, resultat) (Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value))) * 100) / 100;
     ctRlc.value =
       Math.round (Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value)));
         
