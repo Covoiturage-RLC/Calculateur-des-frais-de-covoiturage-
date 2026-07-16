@@ -83,7 +83,7 @@ btnValider.addEventListener("click", (e) => {
     ctTotv.value =
       Math.round ((Number(ctTots.value) / Number(nbVoit.value)) * 100) / 100;
     ctBpp.value =
-      Math.round ((Number(((disTot.value) * Number(prxKm.value)) + Number(peage.value)) * Number(nbVoit.value)) / Number(nbPass.value)) * 100) / 100;
+      Math.round (((Number(((disTot.value) * Number(prxKm.value)) + Number(peage.value)) * Number(nbVoit.value)) / Number(nbPass.value)) * 100) / 100;
     ctRpp.value =
       Math.round ((Number(ctTotv.value) / 4) * 100) / 100;
     ctDep12E.value = 
