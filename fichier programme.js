@@ -87,16 +87,19 @@ btnValider.addEventListener("click", (e) => {
     ctRpp.value =
       Math.round ((Number(ctTotv.value) / 4) * 100) / 100;
     ctDep12E.value = 
-    result = Math.max(0,
-      Math.round (((Number(ctRpp.value)) - 12) * 100) / 100);
+    Math.max(
+      0,
+      Math.round ((Number(ctRpp.value) - 12) * 100) / 100;
     ctRetp.value =
       Math.round ((Number(ctRpp.value) - Number(ctDep12E.value)) * 100) / 100;
     crecagnoRLC.value =
-      Math.abs Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value));
+      Math.abs (Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value)));
     debcagnoRLC.value =
-      Math.max(0, resultat) Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value));
+      Math.max(
+        0, 
+        Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value));
     ctRlc.value =
-     Number((ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value)));
+     Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value));
         
   }
   
