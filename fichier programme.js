@@ -113,9 +113,10 @@ btnValider.addEventListener("click", (e) => {
       Math.max(
         0, 
         Math.round ((Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value))) / Number(nbVoit.value)));
+    // ctRlc.value =
+    // Math.round ((Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value))) * 100) / 100;
     ctRlc.value =
-      Math.round ((Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value))) * 100) / 100;
-        
+      Math.round( Math.abs (diffTotsRetp * 100) / 100);        
   }
   
 });
