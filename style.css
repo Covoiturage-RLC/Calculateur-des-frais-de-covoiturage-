@@ -258,12 +258,12 @@ Box Eléments de Calcul
   background: var(--color3);
   color: rgb(0, 0, 0);
 }
-#ctRlc {
-  border: 2px solid var(--color7);
-  user-select: none;
-  background: var(--color6);
-  color: rgb(0, 0, 0);  
-}
+//     #ctRlc {
+//     border: 2px solid var(--color7);
+//     user-select: none;
+//     background: var(--color6);
+//     color: rgb(0, 0, 0);  
+//     }
 #debcagnoRLC {
   border: 2px solid var(--color7);
   user-select: none;
