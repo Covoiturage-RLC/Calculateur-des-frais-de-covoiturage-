@@ -92,8 +92,22 @@ btnValider.addEventListener("click", (e) => {
       Math.round ((Number(ctRpp.value) - 12) * 100) / 100);
     ctRetp.value =
       Math.round (Number(ctRpp.value) - Number(ctDep12E.value));
-    crecagnoRLC.value =
-      Math.round( Math.abs (Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value))) / Number(nbVoit.value));
+    
+    // 2. Variable intermédiaire pour simplifier les formules suivantes
+    const diffTotsRetp = Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value));
+
+    // 3. Nouvelle règle pour crecagnoRLC
+    if (Number(ctDep12E.value) > 0) {
+      crecagnoRLC.value = 0; // Si ctDep12E est positif, on force à 0
+    } else {
+      // Sinon, on applique l'ancienne règle (Négatif -> Positif | Positif -> 0)
+      // Note : Divisé par nbVoit comme dans votre dernier exemple
+      crecagnoRLC.value = Math.round(Math.max(0, -diffTotsRetp) / Number(nbVoit.value) * 100) / 100;
+    }
+    
+   // ancienne formule: crecagnoRLC.value =
+   // Math.round( Math.abs (Number(ctTots.value) - (Number(ctRetp.value) * Number(nbPass.value))) / Number(nbVoit.value));
+    
     debcagnoRLC.value =
       Math.max(
         0, 
