@@ -14,6 +14,7 @@ const ctRlc = document.getElementById("ctRlc");
 const btnValider = document.getElementById("btnValider");
 const debcagnoRLC = document.getElementById("debcagnoRLC");
 const crecagnoRLC = document.getElementById("crecagnoRLC");
+const diffTotsRetp = document.getElementById("diffTotsRetp");
 
 //--------------------------------
 // Stockage et lecture des Data
