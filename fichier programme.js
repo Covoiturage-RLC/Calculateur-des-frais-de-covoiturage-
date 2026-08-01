@@ -102,7 +102,7 @@ btnValider.addEventListener("click", (e) => {
     } else {
       // Sinon, on applique l'ancienne règle (Négatif -> Positif | Positif -> 0)
       // Note : Divisé par nbVoit comme dans votre dernier exemple
-      crecagnoRLC.value = Math.round(Math.max(0, -diffTotsRetp) / Number(nbVoit.value) * 100) / 100;
+      crecagnoRLC.value = Math.round(Math.abs (0, -diffTotsRetp) / Number(nbVoit.value) * 100) / 100;
     }
     
    // ancienne formule: crecagnoRLC.value =
