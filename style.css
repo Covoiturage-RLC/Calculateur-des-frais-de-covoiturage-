@@ -201,8 +201,12 @@ Box Eléments de Calcul
 #ctDep12E {
   user-select: none;
   background: var(--color6);
-
-}
+}  
+  #ctRlc {
+  border: 2px solid var(--color7);
+  user-select: none;
+  background: var(--color6);
+ }
 #boxBtnEltsCalcul {
   grid-area: bBEC;
   display: flex;
