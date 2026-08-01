@@ -1,13 +1,13 @@
 :root {
   --colorBg: rgba(95, 73, 40, 0.397);
   --colorSh: rgba(48, 47, 47, 0.575);
-  --color1: #142889;
-  --color2: #070707;
-  --color3: #fcf11f;
-  --color4: rgb(77, 51, 3);
-  --color5: rgb(253, 244, 236);
-  --color6: rgb(150, 150, 150);
-  --color7: rgb(255, 0, 0);
+  --color1: #142889; /bleu/
+  --color2: #070707; /noir/
+  --color3: #fcf11f; /jaune/
+  --color4: rgb(77, 51, 3); /marron/
+  --color5: rgb(253, 244, 236); /blanc/
+  --color6: rgb(150, 150, 150); /gris/
+  --color7: rgb(255, 0, 0); /rouge/
 }
 * {
   margin: 0;
