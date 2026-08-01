@@ -261,7 +261,7 @@ Box Eléments de Calcul
 #ctRlc {
   border: 2px solid var(--color7);
   user-select: none;
-  background: var(--color3);
+  background: var(--color6);
   color: rgb(0, 0, 0);  
 }
 #debcagnoRLC {
