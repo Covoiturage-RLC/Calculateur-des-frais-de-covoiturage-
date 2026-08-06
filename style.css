@@ -77,12 +77,12 @@ h7 {
   text-align: center;
 }
 label {
-  min-height: 32px; /* Remplacez height: 20px par min-height pour s'adapter aux textes longs */
+  min-height: 32px; /* Remplacez height 20px par min-height pour s'adapter aux textes longs */
   display: flex;
   align-items: center; /* Centre le texte verticalement */
   color: var(--color2);
   font-size: 1rem;
-  /*margin: auto; Supprimé, remplacé par margin: 0 ci-dessous */
+  /*margin auto Supprimé remplacé par margin: 0 ci-dessous */
   margin: 0; /* On laisse le row-gap gérer les espaces */
   text-align: left; /* Plus lisible si le texte passe sur 2 lignes */
 }
@@ -97,17 +97,17 @@ main {
   backdrop-filter: blur(2px); /*non fonctionnel sur Firefox */
 }
 input {
-  width: 50%; /* Légèrement plus large pour le confort visuel, au lieu de 30% */
+  width: 50%; /* Légèrement plus large pour le confort visuel au lieu de 30% */
   min-width: 60px;
-  height: 24px; /* Remplacer height: 20px - Hauteur limitée à 24 pour garder un champ fin */
+  height: 24px; /* Remplacer height 20px Hauteur limitée à 24 pour garder un champ fin */
   border: none;
   border-radius: 5px;
-  /* margin-top: auto; ligne supprimée */
+  /* margin top auto ligne supprimée */
   /* margin-bottom: auto; ligne supprimée */
   text-align: center;
-  margin: auto; /* Rajouté: Centre parfaitement l'input verticalement et horizontalement */
-  /* margin-left: auto; ligne supprimée */
-  /* margin-right: auto; ligne supprimée */
+  margin: auto; /* Rajouté Centre parfaitement l'input verticalement et horizontalement */
+  /* margin left: auto ligne supprimée */
+  /* margin right: auto ligne supprimée */
 }
 
 button {
@@ -158,24 +158,24 @@ Box Eléments de Calcul
   grid-area: bLEC;
   display: grid;
   grid-template-rows: auto;
-  row-gap: 12px; /* Ajouté: Crée l'espace vertical entre les blocs */
-  align-content: space-between; /* Ajouté: Répartit les lignes harmonieusement */
+  row-gap: 12px; /* Ajouté Crée l'espace vertical entre les blocs */
+  align-content: space-between; /* Ajouté Répartit les lignes harmonieusement */
   border: 1px dashed var(--color2);
   border-radius: 10px;
   margin: 3px;
-  padding: 8px; /* Modifié: Un peu de padding pour respirer au lieu de 5px */
+  padding: 8px; /* Modifié Un peu de padding pour respirer au lieu de 5px */
   min-height: 280px;
 }
 #boxDataEltsCalcul {
   grid-area: bDEC;
   display: grid;
   grid-template-rows: auto;
-  row-gap: 12px; /* Ajouté, Crée l'espace vertical entre les blocs */
-  align-content: space-between; /* Ajouté, Répartit les lignes harmonieusement */
+  row-gap: 12px; /* Ajouté Crée l'espace vertical entre les blocs */
+  align-content: space-between; /* Ajouté Répartit les lignes harmonieusement */
   border: 1px dashed var(--color2);
   border-radius: 10px;
   margin: 3px;
-  padding: 8px; /* Modifié, Un peu de padding pour respirer au lieu de 5px */
+  padding: 8px; /* Modifié Un peu de padding pour respirer au lieu de 5px */
   min-height: 280px;
 }
 #nbVoit {
@@ -244,24 +244,24 @@ Box Eléments de Calcul
   grid-area: bLEC;
   display: grid;
   grid-template-rows: auto;
-  row-gap: 12px; /* Ajouté: Crée l'espace vertical entre les blocs */
-  align-content: space-between; /* Ajouté: Répartit les lignes harmonieusement */
+  row-gap: 12px; /* Ajouté Crée l'espace vertical entre les blocs */
+  align-content: space-between; /* Ajouté Répartit les lignes harmonieusement */
   border: 1px dashed var(--color2);
   border-radius: 10px;
   margin: 3px;
-  padding: 8px; /* Modifié: Un peu de padding pour respirer au lieu de 5px */
+  padding: 8px; /* Modifié Un peu de padding pour respirer au lieu de 5px */
   min-height: 5px;
   }
 #boxDataResultat {
   grid-area: bDEC;
   display: grid;
   grid-template-rows: auto;
-  row-gap: 12px; /* Ajouté: Crée l'espace vertical entre les blocs */
-  align-content: space-between; /* Ajouté: Répartit les lignes harmonieusement */
+  row-gap: 12px; /* Ajouté Crée l'espace vertical entre les blocs */
+  align-content: space-between; /* Ajouté Répartit les lignes harmonieusement */
   border: 1px dashed var(--color2);
   border-radius: 10px;
   margin: 3px;
-  padding: 8px; /* Modifié: Un peu de padding pour respirer au lieu de 5px */
+  padding: 8px; /* Modifié Un peu de padding pour respirer au lieu de 5px */
   min-height: 5px;
   }
 #ctRetp {
