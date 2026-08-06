@@ -150,20 +150,8 @@ Box Eléments de Calcul
     "bLEC bDEC"
     "bBEC bBEC";
 }
-#boxLabelEltsCalcul {
-  grid-area: bLEC;
-  display: grid;
-  grid-template-rows: auto;
-  row-gap: 12px; /* Ajouté Crée l'espace vertical entre les blocs */
-  align-content: space-between; /* Ajouté Répartit les lignes harmonieusement */
-  border: 1px dashed var(--color2);
-  border-radius: 10px;
-  margin: 3px;
-  padding: 8px; /* Modifié Un peu de padding pour respirer au lieu de 5px */
-  min-height: 280px;
-}
-#boxDataEltsCalcul {
-  grid-area: bDEC;
+#boxLabelEltsCalcul, #boxDataEltsCalcul {
+  /* supprimé grid-area: bLEC;*/
   display: grid;
   grid-template-rows: auto;
   row-gap: 12px; /* Ajouté Crée l'espace vertical entre les blocs */
@@ -236,20 +224,8 @@ Box Eléments de Calcul
     "h3 h3"
     "bLEC bDEC";
 }
-#boxLabelResultat {
-  grid-area: bLEC;
-  display: grid;
-  grid-template-rows: auto;
-  row-gap: 12px; /* Ajouté Crée l'espace vertical entre les blocs */
-  align-content: space-between; /* Ajouté Répartit les lignes harmonieusement */
-  border: 1px dashed var(--color2);
-  border-radius: 10px;
-  margin: 3px;
-  padding: 8px; /* Modifié Un peu de padding pour respirer au lieu de 5px */
-  min-height: 5px;
-  }
-#boxDataResultat {
-  grid-area: bDEC;
+#boxLabelResultat, #boxDataResultat {
+  /* supprimé grid-area: bLEC;*/
   display: grid;
   grid-template-rows: auto;
   row-gap: 12px; /* Ajouté Crée l'espace vertical entre les blocs */
