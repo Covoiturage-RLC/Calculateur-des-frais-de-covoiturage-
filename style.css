@@ -82,7 +82,7 @@ label {
   align-items: center; /* Centre le texte verticalement */
   color: var(--color2);
   font-size: 1rem;
-  /*margin: auto; Supprimé margin: auto; remplacé par margin: 0 ci-dessous */
+  /*margin: auto; Supprimé, remplacé par margin: 0 ci-dessous */
   margin: 0; /* On laisse le row-gap gérer les espaces */
   text-align: left; /* Plus lisible si le texte passe sur 2 lignes */
 }
@@ -170,12 +170,12 @@ Box Eléments de Calcul
   grid-area: bDEC;
   display: grid;
   grid-template-rows: auto;
-  row-gap: 12px; /* Ajouté: Crée l'espace vertical entre les blocs */
-  align-content: space-between; /* Ajouté: Répartit les lignes harmonieusement */
+  row-gap: 12px; /* Ajouté, Crée l'espace vertical entre les blocs */
+  align-content: space-between; /* Ajouté, Répartit les lignes harmonieusement */
   border: 1px dashed var(--color2);
   border-radius: 10px;
   margin: 3px;
-  padding: 8px; /* Modifié: Un peu de padding pour respirer au lieu de 5px */
+  padding: 8px; /* Modifié, Un peu de padding pour respirer au lieu de 5px */
   min-height: 280px;
 }
 #nbVoit {
