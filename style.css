@@ -99,7 +99,7 @@ main {
 input {
   width: 50%; /* Légèrement plus large pour le confort visuel, au lieu de 30% */
   min-width: 60px;
-  height: 24px; /* Remplacer height: 20px - Donnez aux inputs la même hauteur minimale que les labels, Hauteur limitée à 24 pour garder un champ fin */
+  height: 24px; /* Remplacer height: 20px - Hauteur limitée à 24 pour garder un champ fin */
   border: none;
   border-radius: 5px;
   /* margin-top: auto; ligne supprimée */
