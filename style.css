@@ -207,17 +207,30 @@ Box Eléments de Calcul
 #boxDataResultat { grid-area: bDEC; }
 
 #boxLabelResultat, #boxDataResultat {
- 
   display: grid;
   grid-template-rows: auto;
-  row-gap: 10px; /* Ajouté Crée l'espace vertical entre les blocs */
-  align-content: space-between; /* Ajouté Répartit les lignes harmonieusement */
+  row-gap: 12px; /* Ajouté Crée l'espace vertical entre les blocs */
+  align-content: start;    /* CORRECTIF : Aligne les éléments vers le haut au lieu de les étirer */
+ /* ligne remplacée par start au dessus: align-content: space-between;*/ /* Ajouté Répartit les lignes harmonieusement */
   border: 1px dashed var(--color2);
   border-radius: 10px;
   margin: 3px;
   padding: 8px; /* Modifié Un peu de padding pour respirer au lieu de 5px */
   min-height: 5px;
   }
+/* On s'assure que les labels et les inputs/données partagent des hauteurs cohérentes */
+#boxLabelResultat label {
+  min-height: 24px;        /* Force une hauteur minimale pour correspondre à celle des boites de data */
+  margin: 0;
+}
+
+#boxDataResultat div, 
+#boxDataResultat input {
+  height: 24px;            /* Aligne la hauteur des boîtes de données sur celle des labels */
+  line-height: 24px;
+}
+
+
 #ctRetp {
   border: 2px solid var(--color7);
   font-weight: bold;
