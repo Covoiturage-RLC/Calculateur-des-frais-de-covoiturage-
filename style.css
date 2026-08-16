@@ -49,20 +49,14 @@ h1 {
 h3 {
   grid-area: h3;
   margin: auto;
-  margin-bottom: 15px; /* Réduit pour éviter le grand vide sous PC */
-  color: var(--color1);
-}
-h5 {
-  grid-area: h5;
-  margin-top: 3px;
-  margin-bottom: 15px;
+  margin-bottom: 15px; 
   color: var(--color1);
 }
 h6 {
   font-size: 0.6rem;
   font-style: italic;
   color: var(--color2);
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 5px;
   margin-right: 10px;
   text-align: right;
@@ -72,41 +66,80 @@ h7 {
   font-style: normal;
   color: var(--color2);
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   text-align: center;
   display: block;
-}
-label {
-  display: flex;
-  align-items: center; 
-  color: var(--color2);
-  font-size: 0.95rem;  
-  margin: 0; 
-  text-align: left; 
 }
 main {
   background: var(--colorBg);
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
-  padding: 2px;
+  padding: 5px;
   border-radius: 15px;
   box-shadow: 8px 8px 5px var(--colorSh);
   backdrop-filter: blur(2px); 
 }
+#box {
+  border-radius: 20px;
+  padding: 5px;
+}
+
+/*----------------------------------------------
+  STRUCTURE DES COMPOSANTS (Finesse et Alignement)
+------------------------------------------------*/
+
+#boxEltsCalcul, #boxResultat {
+  border: 3px solid var(--color1);
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 15px;
+  display: grid;
+  /* Crée un vrai tableau à 2 colonnes (75% texte / 25% input) */
+  grid-template-columns: 75% 25%; 
+  row-gap: 8px;         /* Espace fin et élégant entre les lignes */
+  column-gap: 12px;     /* Espace entre le texte et l'input */
+  align-items: center;  /* Centre verticalement l'input si le texte fait 2 lignes */
+}
+
+/* ASTUCE CHRONO : On brise les conteneurs intermédiaires pour aligner */
+/* les labels directement avec les inputs dans la grande grille parent */
+#boxLabelEltsCalcul, #boxDataEltsCalcul,
+#boxLabelResultat, #boxDataResultat {
+  display: contents; 
+}
+
+/* Style des textes (Fin, propre et s'adapte sans hauteur fixe) */
+label {
+  color: var(--color2);
+  font-size: 0.9rem;  
+  text-align: left;
+  line-height: 1.3;
+  padding: 4px 0;
+}
+
+/* Style des champs de saisie (Fins et standardisés) */
 input {
-  width: 100%; /* Prend toute la place de sa colonne Data */
-  height: 24px; 
+  width: 100%;
+  height: 24px; /* Hauteur fine et élégante sur PC */
   border: none;
   border-radius: 5px; 
   text-align: center;
-  margin: auto; 
+  font-size: 0.9rem;
 }
+
+/* Éléments spécifiques du bloc calcul */
+#boxBtnEltsCalcul {
+  grid-column: span 2; /* Le bouton prend toute la largeur en bas */
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
 button {
   border: 3px solid var(--color2);
   border-radius: 10px;
-  width: 25%;
-  min-width: 100px;
+  width: 120px;
   height: 35px;
   background: var(--color3);
   cursor: pointer;
@@ -114,69 +147,15 @@ button {
 }
 button h3 {
   margin: 0 !important;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 #btnValider:hover {
   background: var(--color2);
   color: var(--color4);
   transform: scale(1.05);
 }
-#btnValider:active {
-  background: var(--color4);
-}
-#box {
-  border-radius: 20px;
-  padding: 5px;
-}
 
-/*-----------------------
-Box Eléments de Calcul 
--------------------------*/
-#boxEltsCalcul {
-  border: 3px solid var(--color1);
-  border-radius: 10px;
-  margin: 3px;
-  padding: 10px;
-  display: grid;
-  grid-template-columns: 72% 28%; /* Définit la proportion Texte / Input */
-  grid-template-areas:
-    "h3 h3"
-    "bLEC bDEC"
-    "bBEC bBEC";
-}
-
-#boxLabelEltsCalcul { 
-  grid-area: bLEC; 
-  display: flex;
-  flex-direction: column;
-  row-gap: 12px; /* Espacement fixe entre les lignes */
-  justify-content: space-between;
-  border: 1px dashed var(--color2);
-  border-radius: 10px 0 0 10px;
-  border-right: none;
-  padding: 10px 5px 10px 10px;
-}
-
-#boxDataEltsCalcul { 
-  grid-area: bDEC; 
-  display: flex;
-  flex-direction: column;
-  row-gap: 12px; /* Strictement le même espacement qu'à gauche */
-  justify-content: space-between;
-  border: 1px dashed var(--color2);
-  border-radius: 0 10px 10px 0;
-  border-left: none;
-  padding: 10px 10px 10px 5px;
-}
-
-/* On force chaque label et son input à avoir exactement la même hauteur */
-#boxLabelEltsCalcul label {
-  height: 32px; /* Hauteur fixe augmentée pour laisser le texte passer sur 2 lignes sans déborder */
-}
-#boxDataEltsCalcul input {
-  height: 32px; 
-}
-
+/* Couleurs des Inputs de calcul */
 #nbVoit, #nbPass, #prxKm, #ctTots, #ctTotv, #ctBpp, #ctRpp, #ctDep12E, #ctRlc {
   user-select: none;
   background: var(--color6);
@@ -184,59 +163,9 @@ Box Eléments de Calcul
 #ctTotv, #ctRlc {
   border: 2px solid var(--color7);
 }
-#boxBtnEltsCalcul {
-  grid-area: bBEC;
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-}
 
-/*--------------
- Box Résultat 
- ---------------*/
-#boxResultat {
-  border: 3px solid var(--color1);
-  border-radius: 10px;
-  margin: 10px 3px 3px 3px;
-  padding: 10px;
-  display: grid;
-  grid-template-columns: 72% 28%;
-  grid-template-areas:
-    "h3 h3"
-    "bLEC bDEC";
-}
-
-#boxLabelResultat { 
-  grid-area: bLEC; 
-  display: flex;
-  flex-direction: column;
-  row-gap: 15px;
-  justify-content: space-between;
-  border: 1px dashed var(--color2);
-  border-radius: 10px 0 0 10px;
-  border-right: none;
-  padding: 10px 5px 10px 10px;
-}
-
-#boxDataResultat { 
-  grid-area: bDEC; 
-  display: flex;
-  flex-direction: column;
-  row-gap: 15px;
-  justify-content: space-between;
-  border: 1px dashed var(--color2);
-  border-radius: 0 10px 10px 0;
-  border-left: none;
-  padding: 10px 10px 10px 5px;
-}
-
-/* Sécurité absolue anti-décalage pour les longs textes des résultats */
-#boxLabelResultat label {
-  height: 55px; /* Hauteur généreuse permettant d'accueillir les phrases de 3 lignes */
-  font-size: 0.9rem;
-}
-#boxDataResultat input {
-  height: 55px; /* L'input fait exactement la même hauteur que le bloc de texte en face */
+/* Couleurs des Inputs de résultat */
+#ctRetp, #debcagnoRLC, #crecagnoRLC {
   border: 2px solid var(--color7);
   font-weight: bold;
   user-select: none;
@@ -251,16 +180,15 @@ Responsive (Téléphones)
 /* Mode PORTRAIT (Téléphone Vertical) */
 @media screen and (max-width: 455px) and (orientation: portrait) {
   h1 { font-size: 1.1rem; max-width: 95vw; }
-  h3 { margin-bottom: 10px; }
   main { width: 98%; }
   
   #boxEltsCalcul, #boxResultat {
-    grid-template-columns: 65% 35%; /* On resserre un peu sur petit écran */
+    grid-template-columns: 68% 32%; /* Ajustement de l'espace sur petit écran */
+    padding: 8px;
+    row-gap: 6px;
   }
-  label { font-size: 0.72rem; line-height: 1.1; }
-  
-  #boxLabelEltsCalcul label, #boxDataEltsCalcul input { height: 42px; }
-  #boxLabelResultat label, #boxDataResultat input { height: 75px; font-size: 0.72rem; }
+  label { font-size: 0.72rem; line-height: 1.2; }
+  input { height: 26px; font-size: 0.8rem; } /* Légèrement plus haut pour le tactile */
 }
 
 /* Mode PAYSAGE (Téléphone Horizontal) */
@@ -269,13 +197,12 @@ Responsive (Téléphones)
   header { margin-top: 5px; }
   #imgIRSE, #imgCFC { height: 50px; width: 50px; margin: auto; }
   h1 { font-size: 1.2rem; max-width: 70vw; }
-  h3, h5 { margin-bottom: 10px; }
   main { max-width: 650px; width: 95%; }
 
   #boxEltsCalcul, #boxResultat {
     grid-template-columns: 75% 25%; 
+    row-gap: 6px;
   }
   label { font-size: 0.82rem; }
-  #boxLabelEltsCalcul label, #boxDataEltsCalcul input { height: 35px; }
-  #boxLabelResultat label, #boxDataResultat input { height: 60px; }
+  input { height: 24px; }
 }
