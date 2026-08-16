@@ -12,7 +12,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* ligne initialement commentée */
+  box-sizing: border-box; 
 }
 body {
   font-family: "Open Sans", Verdana, sans-serif;
@@ -38,7 +38,6 @@ header {
   display: grid;
 }
 h1 {
-  /* Titre marron  Calculateur des frais de covoiturage */ 
   display: grid;
   color: var(--color4);
   text-shadow: 5px 5px 4px var(--colorSh);
@@ -48,47 +47,42 @@ h1 {
   text-align: center;
 }
 h3 {
-  /* Titre bleu Eléments de Calcul */
   grid-area: h3;
   margin: auto;
-  margin-bottom: 15px;
+  margin-bottom: 15px; /* Réduit pour éviter le grand vide sous PC */
   color: var(--color1);
 }
 h5 {
-  /* Titre bleu Résultat */
   grid-area: h5;
   margin-top: 3px;
   margin-bottom: 15px;
   color: var(--color1);
 }
 h6 {
-  /* Texte noir Copyrith */
   font-size: 0.6rem;
   font-style: italic;
   color: var(--color2);
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: 10px;
+  margin-bottom: 5px;
   margin-right: 10px;
   text-align: right;
 }
 h7 {
-  /* Texte noir Renseigner les cases.... */
   font-size: 0.8rem;
   font-style: normal;
   color: var(--color2);
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-right: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
   text-align: center;
+  display: block;
 }
 label {
-  min-height: 32px; /* Remplacez height 20px par min-height pour s'adapter aux textes longs */
   display: flex;
-  align-items: center; /* Centre le texte verticalement */
+  align-items: center; 
   color: var(--color2);
-  font-size: 1rem;  /* dessous, margin auto Supprimé remplacé par margin: 0 ci-dessous */
-  margin: 0; /* On laisse le row-gap gérer les espaces */
-  text-align: left; /* Plus lisible si le texte passe sur 2 lignes */
+  font-size: 0.95rem;  
+  margin: 0; 
+  text-align: left; 
 }
 main {
   background: var(--colorBg);
@@ -98,35 +92,34 @@ main {
   padding: 2px;
   border-radius: 15px;
   box-shadow: 8px 8px 5px var(--colorSh);
-  backdrop-filter: blur(2px); /*non fonctionnel sur Firefox */
+  backdrop-filter: blur(2px); 
 }
 input {
-  width: 30%; /* Légèrement plus large pour le confort visuel au lieu de 30% (proposé 50%) */
-  min-width: 60px;
-  height: 20px; /* Remplacer height 20px Hauteur limitée à 24 pour garder un champ fin */
+  width: 100%; /* Prend toute la place de sa colonne Data */
+  height: 24px; 
   border: none;
-  border-radius: 5px; /* Dessous, margin top auto et ligne margin-bottom auto supprimée */
+  border-radius: 5px; 
   text-align: center;
-  margin: auto; /* Rajouté Centre parfaitement l'input verticalement et horizontalement - margin left: auto et margin right: auto supprimée  */
-  
+  margin: auto; 
 }
-
 button {
   border: 3px solid var(--color2);
   border-radius: 10px;
-  width: 20%;
-  min-width: 80px;
-  height: 30px;
-  margin-top: 1px;
-  margin-bottom: 5px;
+  width: 25%;
+  min-width: 100px;
+  height: 35px;
   background: var(--color3);
   cursor: pointer;
   transition: 0.4s;
 }
+button h3 {
+  margin: 0 !important;
+  font-size: 1.1rem;
+}
 #btnValider:hover {
   background: var(--color2);
   color: var(--color4);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 #btnValider:active {
   background: var(--color4);
@@ -134,8 +127,6 @@ button {
 #box {
   border-radius: 20px;
   padding: 5px;
-  margin-top: 1px;
-  margin-bottom: 1px;
 }
 
 /*-----------------------
@@ -146,44 +137,58 @@ Box Eléments de Calcul
   border-radius: 10px;
   margin: 3px;
   padding: 10px;
-  min-height: 200px;
   display: grid;
-  grid-template-columns: 75% 25%; /* Ajusté pour donner un peu plus de place aux inputs sur PC */
-  grid-template-rows: auto auto auto; /* ancienne valeur 10% 80% 10% */
+  grid-template-columns: 72% 28%; /* Définit la proportion Texte / Input */
   grid-template-areas:
     "h3 h3"
     "bLEC bDEC"
     "bBEC bBEC";
 }
-/* CORRECTIF : Association obligatoire des identifiants aux zones grid */
-#boxLabelEltsCalcul { grid-area: bLEC; }
-#boxDataEltsCalcul { grid-area: bDEC; }
 
-#boxLabelEltsCalcul, #boxDataEltsCalcul {
-  /* supprimé grid-area: bLEC;*/
-  display: grid;
-  grid-template-rows: auto;
-  row-gap: 10px; /* Ajouté Crée l'espace vertical entre les blocs */
-  align-content: space-between; /* Ajouté Répartit les lignes harmonieusement */
+#boxLabelEltsCalcul { 
+  grid-area: bLEC; 
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px; /* Espacement fixe entre les lignes */
+  justify-content: space-between;
   border: 1px dashed var(--color2);
-  border-radius: 10px;
-  margin: 3px;
-  padding: 8px; /* Modifié Un peu de padding pour respirer au lieu de 5px */
-  min-height: 200px;
+  border-radius: 10px 0 0 10px;
+  border-right: none;
+  padding: 10px 5px 10px 10px;
 }
+
+#boxDataEltsCalcul { 
+  grid-area: bDEC; 
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px; /* Strictement le même espacement qu'à gauche */
+  justify-content: space-between;
+  border: 1px dashed var(--color2);
+  border-radius: 0 10px 10px 0;
+  border-left: none;
+  padding: 10px 10px 10px 5px;
+}
+
+/* On force chaque label et son input à avoir exactement la même hauteur */
+#boxLabelEltsCalcul label {
+  height: 32px; /* Hauteur fixe augmentée pour laisser le texte passer sur 2 lignes sans déborder */
+}
+#boxDataEltsCalcul input {
+  height: 32px; 
+}
+
 #nbVoit, #nbPass, #prxKm, #ctTots, #ctTotv, #ctBpp, #ctRpp, #ctDep12E, #ctRlc {
   user-select: none;
   background: var(--color6);
 }
 #ctTotv, #ctRlc {
-  border: 2px solid var(--color7);          
+  border: 2px solid var(--color7);
 }
 #boxBtnEltsCalcul {
   grid-area: bBEC;
   display: flex;
-  justify-content: space-around;
-  margin: 3px;
-  padding: 5px;
+  justify-content: center;
+  margin-top: 15px;
 }
 
 /*--------------
@@ -192,176 +197,85 @@ Box Eléments de Calcul
 #boxResultat {
   border: 3px solid var(--color1);
   border-radius: 10px;
-  margin: 3px;
+  margin: 10px 3px 3px 3px;
   padding: 10px;
-  min-height: 5px;
   display: grid;
-  grid-template-columns: 75% 25%;
-  grid-template-rows: auto auto;
+  grid-template-columns: 72% 28%;
   grid-template-areas:
     "h3 h3"
     "bLEC bDEC";
-
 }
-/* CORRECTIF : Même chose pour la boîte résultat */
-#boxLabelResultat { grid-area: bLEC; }
-#boxDataResultat { grid-area: bDEC; }
 
-#boxLabelResultat, #boxDataResultat {
-  display: grid;
-  grid-template-rows: auto;
-  row-gap: 12px; /* Ajouté Crée l'espace vertical entre les blocs */
-  align-content: start;    /* CORRECTIF : Aligne les éléments vers le haut au lieu de les étirer */
- /* ligne remplacée par start au dessus: align-content: space-between;*/ /* Ajouté Répartit les lignes harmonieusement */
+#boxLabelResultat { 
+  grid-area: bLEC; 
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  justify-content: space-between;
   border: 1px dashed var(--color2);
-  border-radius: 10px;
-  margin: 3px;
-  padding: 8px; /* Modifié Un peu de padding pour respirer au lieu de 5px */
-  min-height: 5px;
-  }
-/* On s'assure que les labels et les inputs/données partagent des hauteurs cohérentes */
+  border-radius: 10px 0 0 10px;
+  border-right: none;
+  padding: 10px 5px 10px 10px;
+}
+
+#boxDataResultat { 
+  grid-area: bDEC; 
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  justify-content: space-between;
+  border: 1px dashed var(--color2);
+  border-radius: 0 10px 10px 0;
+  border-left: none;
+  padding: 10px 10px 10px 5px;
+}
+
+/* Sécurité absolue anti-décalage pour les longs textes des résultats */
 #boxLabelResultat label {
-  height: 24px; /* Fixe la hauteur exacte pour correspondre à droite */
-  min-height: 24px;   /* Force une hauteur minimale pour correspondre à celle des boites de data */
-  margin: 0;
-  display: flex;
-  align-items: center; /* Aligne le texte au milieu de ses 24px */
+  height: 55px; /* Hauteur généreuse permettant d'accueillir les phrases de 3 lignes */
+  font-size: 0.9rem;
 }
-
-/* Cible absolument tous les types de boites de données de votre colonne droite */
-#boxDataResultat input,
-#boxDataResultat div,
-#boxDataResultat span,
-#boxDataResultat p {
-  height: 24px !important; /* Force la hauteur à 24px pour contrer les bordures */
-  line-height: 20px;       /* Ajuste le texte à l'intérieur pour compenser les bordures de 2px */
-  box-sizing: border-box;  /* Inclus la bordure rouge de 2px DANS les 24px de hauteur */
-  margin: 0 auto;          /* Centre proprement les boîtes horizontalement */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-#ctRetp {
+#boxDataResultat input {
+  height: 55px; /* L'input fait exactement la même hauteur que le bloc de texte en face */
   border: 2px solid var(--color7);
   font-weight: bold;
   user-select: none;
   background: var(--color3);
   color: rgb(0, 0, 0);
 }
-//     #ctRlc {
-//     border: 2px solid var(--color7);
-//     user-select: none;
-//     background: var(--color6);
-//     color: rgb(0, 0, 0);  
-//     }
-#debcagnoRLC {
-  border: 2px solid var(--color7);
-  user-select: none;
-  background: var(--color3);
-  color: rgb(0, 0, 0);
-  }
-#crecagnoRLC {
-  border: 2px solid var(--color7);
-  user-select: none;
-  background: var(--color3);
-  color: rgb(0, 0, 0);
-}
+
 /* ----------
-Responsive & Orientations
+Responsive (Téléphones)
 ------------- */
 
-/* 1. RÈGLE MOBILE PORTRAIT (Téléphone tenu verticalement) */
+/* Mode PORTRAIT (Téléphone Vertical) */
 @media screen and (max-width: 455px) and (orientation: portrait) {
-  h1 {
-    font-size: 1.2rem;
-    max-width: 95vw;
-  }
-  h3 {
-    margin-bottom: 15px;
-  }
+  h1 { font-size: 1.1rem; max-width: 95vw; }
+  h3 { margin-bottom: 10px; }
+  main { width: 98%; }
   
-  /* On force le côte à côte en mode portrait mais en mode ultra-compact */
   #boxEltsCalcul, #boxResultat {
-    grid-template-columns: 65% 35%; 
-    grid-template-areas:
-      "h3 h3"
-      "bLEC bDEC"
-      "bBEC bBEC";
-    padding: 2px;
+    grid-template-columns: 65% 35%; /* On resserre un peu sur petit écran */
   }
+  label { font-size: 0.72rem; line-height: 1.1; }
   
-  label {
-    font-size: 0.7rem; /* Écrit petit pour éviter les retours à la ligne destructeurs */
-    line-height: 1.1;
-  }
-  
-  input {
-    width: 95%;
-    font-size: 0.75rem;
-    height: 22px;
-  }
-  
-  #boxLabelEltsCalcul, #boxDataEltsCalcul, #boxLabelResultat, #boxDataResultat {
-    padding: 4px;
-    row-gap: 8px;
-  }
+  #boxLabelEltsCalcul label, #boxDataEltsCalcul input { height: 42px; }
+  #boxLabelResultat label, #boxDataResultat input { height: 75px; font-size: 0.72rem; }
 }
 
-/* 2. RÈGLE MOBILE PAYSAGE (Téléphone basculé à l'horizontal) - VOTRE CONFIGURATION IDÉALE */
+/* Mode PAYSAGE (Téléphone Horizontal) */
 @media screen and (max-width: 932px) and (orientation: landscape) {
-  body {
-    height: auto; /* Permet de défiler vers le bas si le smartphone manque de hauteur */
-  }
-  
-  header {
-    margin-top: 5px;
-  }
-  
-  #imgIRSE, #imgCFC {
-    height: 50px; /* On miniaturise les logos pour gagner de la place en hauteur */
-    width: 50px;
-    margin: auto;
-  }
-  
-  h1 {
-    font-size: 1.2rem;
-    max-width: 70vw;
-  }
-  
-  h3, h5 {
-    margin-bottom: 10px; /* Espacements réduits au minimum */
-  }
-  
-  main {
-    max-width: 650px; /* On élargit la boîte pour profiter de la largeur du téléphone en paysage */
-    width: 95%;
-  }
+  body { height: auto; }
+  header { margin-top: 5px; }
+  #imgIRSE, #imgCFC { height: 50px; width: 50px; margin: auto; }
+  h1 { font-size: 1.2rem; max-width: 70vw; }
+  h3, h5 { margin-bottom: 10px; }
+  main { max-width: 650px; width: 95%; }
 
-  /* Alignement horizontal côte à côte parfait et ultra-lisible */
   #boxEltsCalcul, #boxResultat {
     grid-template-columns: 75% 25%; 
-    grid-template-areas:
-      "h3 h3"
-      "bLEC bDEC"
-      "bBEC bBEC";
-    padding: 8px;
   }
-
-  label {
-    font-size: 0.85rem; /* Le texte redevient confortable à lire */
-  }
-
-  input {
-    width: 85%;
-    height: 24px;
-    font-size: 0.9rem;
-  }
-
-  #boxLabelEltsCalcul, #boxDataEltsCalcul, #boxLabelResultat, #boxDataResultat {
-    padding: 6px;
-    row-gap: 6px;
-   }
-  
+  label { font-size: 0.82rem; }
+  #boxLabelEltsCalcul label, #boxDataEltsCalcul input { height: 35px; }
+  #boxLabelResultat label, #boxDataResultat input { height: 60px; }
 }
