@@ -201,6 +201,7 @@ Box Eléments de Calcul
   grid-template-areas:
     "h3 h3"
     "bLEC bDEC";
+
 }
 /* CORRECTIF : Même chose pour la boîte résultat */
 #boxLabelResultat { grid-area: bLEC; }
@@ -209,7 +210,7 @@ Box Eléments de Calcul
 #boxLabelResultat, #boxDataResultat {
   display: grid;
   grid-template-rows: auto;
-  row-gap: 12px; /* Ajouté Crée l'espace vertical entre les blocs */
+  row-gap: 15px; /* Ajouté Crée l'espace vertical entre les blocs */
   align-content: start;    /* CORRECTIF : Aligne les éléments vers le haut au lieu de les étirer */
  /* ligne remplacée par start au dessus: align-content: space-between;*/ /* Ajouté Répartit les lignes harmonieusement */
   border: 1px dashed var(--color2);
