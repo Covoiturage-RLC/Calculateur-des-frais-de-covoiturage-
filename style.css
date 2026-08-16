@@ -87,8 +87,8 @@ label {
 }
 main {
   background: var(--colorBg);
-  width: 80%;
-  max-width: 50rem;
+  width: 100%;
+  max-width: 500px;
   margin: 0 auto;
   padding: 2px;
   border-radius: 15px;
