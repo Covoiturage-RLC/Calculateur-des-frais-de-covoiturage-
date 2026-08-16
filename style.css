@@ -49,7 +49,7 @@ h1 {
 h3 {
   grid-area: h3;
   margin: auto;
-  margin-bottom: 15px; 
+  margin-bottom: 15px; /* Évite le grand vide sous le titre */
   color: var(--color1);
 }
 h6 {
@@ -73,7 +73,7 @@ h7 {
 main {
   background: var(--colorBg);
   width: 100%;
-  max-width: 500px;
+  max-width: 500px; /* Conserve le cadre PC compact d'origine */
   margin: 0 auto;
   padding: 5px;
   border-radius: 15px;
@@ -93,69 +93,87 @@ main {
   border: 3px solid var(--color1);
   border-radius: 10px;
   margin-bottom: 15px;
-  padding: 15px;
+  padding: 12px;
   display: grid;
-  /* Crée un vrai tableau à 2 colonnes (75% texte / 25% input) */
-  grid-template-columns: 75% 25%; 
-  row-gap: 8px;         /* Espace fin et élégant entre les lignes */
-  column-gap: 12px;     /* Espace entre le texte et l'input */
-  align-items: center;  /* Centre verticalement l'input si le texte fait 2 lignes */
+  grid-template-columns: 74% 26%; /* Distribution exacte */
+  grid-template-areas:
+    "h3 h3"
+    "bLEC bDEC"
+    "bBEC bBEC";
 }
 
-/* ASTUCE CHRONO : On brise les conteneurs intermédiaires pour aligner */
-/* les labels directement avec les inputs dans la grande grille parent */
-#boxLabelEltsCalcul, #boxDataEltsCalcul,
-#boxLabelResultat, #boxDataResultat {
-  display: contents; 
+/* Les deux blocs internes se partagent l'espace et s'alignent ligne par ligne */
+#boxLabelEltsCalcul, #boxLabelResultat { 
+  grid-area: bLEC; 
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px; /* Espacement fin et discret */
 }
 
-/* Style des textes (Fin, propre et s'adapte sans hauteur fixe) */
+#boxDataEltsCalcul, #boxDataResultat { 
+  grid-area: bDEC; 
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px; /* Strictement identique à gauche */
+}
+
+/* STYLE DES TEXTES (S'adapte dynamiquement sans forcer de hauteur) */
 label {
   color: var(--color2);
-  font-size: 0.9rem;  
+  font-size: 0.88rem;  
   text-align: left;
   line-height: 1.3;
-  padding: 4px 0;
+  min-height: 24px; /* Hauteur de ligne fine par défaut */
+  display: flex;
+  align-items: center;
 }
 
-/* Style des champs de saisie (Fins et standardisés) */
+/* STYLE DES INPUTS (Fins et fluides) */
 input {
   width: 100%;
-  height: 24px; /* Hauteur fine et élégante sur PC */
+  height: 24px; /* Hauteur fine et élégante */
+  min-height: 24px;
   border: none;
   border-radius: 5px; 
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+  margin: 0;
 }
 
-/* Éléments spécifiques du bloc calcul */
+/* Règles spécifiques pour la ligne longue du bloc Résultat */
+/* On force le dernier label et son input à s'agrandir de concert */
+#boxLabelResultat label:last-of-type {
+  min-height: 48px; /* Permet au long texte de respirer sur 2-3 lignes */
+}
+#boxDataResultat input:last-of-type {
+  height: 48px; /* L'input s'aligne sur la hauteur du texte en face */
+}
+
+/* Éléments du bouton */
 #boxBtnEltsCalcul {
-  grid-column: span 2; /* Le bouton prend toute la largeur en bas */
+  grid-area: bBEC;
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 12px;
 }
-
 button {
   border: 3px solid var(--color2);
   border-radius: 10px;
-  width: 120px;
-  height: 35px;
+  width: 110px;
+  height: 32px;
   background: var(--color3);
   cursor: pointer;
   transition: 0.4s;
 }
 button h3 {
   margin: 0 !important;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 #btnValider:hover {
-  background: var(--color2);
-  color: var(--color4);
   transform: scale(1.05);
 }
 
-/* Couleurs des Inputs de calcul */
+/* Couleurs des Inputs */
 #nbVoit, #nbPass, #prxKm, #ctTots, #ctTotv, #ctBpp, #ctRpp, #ctDep12E, #ctRlc {
   user-select: none;
   background: var(--color6);
@@ -163,8 +181,6 @@ button h3 {
 #ctTotv, #ctRlc {
   border: 2px solid var(--color7);
 }
-
-/* Couleurs des Inputs de résultat */
 #ctRetp, #debcagnoRLC, #crecagnoRLC {
   border: 2px solid var(--color7);
   font-weight: bold;
@@ -183,12 +199,15 @@ Responsive (Téléphones)
   main { width: 98%; }
   
   #boxEltsCalcul, #boxResultat {
-    grid-template-columns: 68% 32%; /* Ajustement de l'espace sur petit écran */
-    padding: 8px;
-    row-gap: 6px;
+    grid-template-columns: 66% 34%; 
+    padding: 6px;
+    row-gap: 8px;
   }
   label { font-size: 0.72rem; line-height: 1.2; }
-  input { height: 26px; font-size: 0.8rem; } /* Légèrement plus haut pour le tactile */
+  input { height: 26px; font-size: 0.8rem; } 
+  
+  #boxLabelResultat label:last-of-type { min-height: 65px; }
+  #boxDataResultat input:last-of-type { height: 65px; }
 }
 
 /* Mode PAYSAGE (Téléphone Horizontal) */
@@ -201,7 +220,6 @@ Responsive (Téléphones)
 
   #boxEltsCalcul, #boxResultat {
     grid-template-columns: 75% 25%; 
-    row-gap: 6px;
   }
   label { font-size: 0.82rem; }
   input { height: 24px; }
