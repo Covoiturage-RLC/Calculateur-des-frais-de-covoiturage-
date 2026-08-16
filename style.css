@@ -47,16 +47,15 @@ h1 {
   text-align: center;
 }
 h3 {
-  grid-area: h3;
-  margin: auto;
-  margin-bottom: 15px; /* Évite le grand vide sous le titre */
+  grid-column: 1 / -1;
+  margin: 0 auto 10px auto;
   color: var(--color1);
 }
 h6 {
   font-size: 0.6rem;
   font-style: italic;
   color: var(--color2);
-  margin-top: 15px;
+  margin-top: 10px;
   margin-bottom: 5px;
   margin-right: 10px;
   text-align: right;
@@ -66,19 +65,18 @@ h7 {
   font-style: normal;
   color: var(--color2);
   margin-top: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   text-align: center;
   display: block;
 }
 main {
   background: var(--colorBg);
   width: 100%;
-  max-width: 500px; /* Conserve le cadre PC compact d'origine */
+  max-width: 500px; 
   margin: 0 auto;
-  padding: 5px;
+  padding: 10px;
   border-radius: 15px;
   box-shadow: 8px 8px 5px var(--colorSh);
-  backdrop-filter: blur(2px); 
 }
 #box {
   border-radius: 20px;
@@ -86,88 +84,61 @@ main {
 }
 
 /*----------------------------------------------
-  STRUCTURE DES COMPOSANTS (Finesse et Alignement)
+  NOUVELLE STRUCTURE PROPRE (Anti-débordement)
 ------------------------------------------------*/
 
 #boxEltsCalcul, #boxResultat {
   border: 3px solid var(--color1);
   border-radius: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   padding: 12px;
   display: grid;
-  grid-template-columns: 74% 26%; /* Distribution exacte */
-  grid-template-areas:
-    "h3 h3"
-    "bLEC bDEC"
-    "bBEC bBEC";
-}
-
-/* Les deux blocs internes se partagent l'espace et s'alignent ligne par ligne */
-#boxLabelEltsCalcul, #boxLabelResultat { 
-  grid-area: bLEC; 
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px; /* Espacement fin et discret */
-}
-
-#boxDataEltsCalcul, #boxDataResultat { 
-  grid-area: bDEC; 
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px; /* Strictement identique à gauche */
-}
-
-/* STYLE DES TEXTES (S'adapte dynamiquement sans forcer de hauteur) */
-label {
-  color: var(--color2);
-  font-size: 0.88rem;  
-  text-align: left;
-  line-height: 1.3;
-  min-height: 24px; /* Hauteur de ligne fine par défaut */
-  display: flex;
+  grid-template-columns: 74% 26%; 
+  row-gap: 8px;
+  column-gap: 8px;
   align-items: center;
 }
 
-/* STYLE DES INPUTS (Fins et fluides) */
+/* On cache les vieux conteneurs intermédiaires qui font buguer les flux */
+#boxLabelEltsCalcul, #boxDataEltsCalcul,
+#boxLabelResultat, #boxDataResultat {
+  display: contents; 
+}
+
+label {
+  color: var(--color2);
+  font-size: 0.82rem;  
+  text-align: left;
+  line-height: 1.25;
+}
+
 input {
   width: 100%;
-  height: 24px; /* Hauteur fine et élégante */
-  min-height: 24px;
+  height: 24px; 
   border: none;
   border-radius: 5px; 
   text-align: center;
-  font-size: 0.88rem;
-  margin: 0;
+  font-size: 0.85rem;
 }
 
-/* Règles spécifiques pour la ligne longue du bloc Résultat */
-/* On force le dernier label et son input à s'agrandir de concert */
-#boxLabelResultat label:last-of-type {
-  min-height: 48px; /* Permet au long texte de respirer sur 2-3 lignes */
-}
-#boxDataResultat input:last-of-type {
-  height: 48px; /* L'input s'aligne sur la hauteur du texte en face */
-}
-
-/* Éléments du bouton */
 #boxBtnEltsCalcul {
-  grid-area: bBEC;
+  grid-column: span 2;
   display: flex;
   justify-content: center;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 button {
   border: 3px solid var(--color2);
   border-radius: 10px;
-  width: 110px;
-  height: 32px;
+  width: 100px;
+  height: 30px;
   background: var(--color3);
   cursor: pointer;
   transition: 0.4s;
 }
 button h3 {
   margin: 0 !important;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 #btnValider:hover {
   transform: scale(1.05);
@@ -193,34 +164,23 @@ button h3 {
 Responsive (Téléphones)
 ------------- */
 
-/* Mode PORTRAIT (Téléphone Vertical) */
 @media screen and (max-width: 455px) and (orientation: portrait) {
   h1 { font-size: 1.1rem; max-width: 95vw; }
   main { width: 98%; }
-  
   #boxEltsCalcul, #boxResultat {
-    grid-template-columns: 66% 34%; 
+    grid-template-columns: 65% 35%; 
     padding: 6px;
-    row-gap: 8px;
   }
-  label { font-size: 0.72rem; line-height: 1.2; }
-  input { height: 26px; font-size: 0.8rem; } 
-  
-  #boxLabelResultat label:last-of-type { min-height: 65px; }
-  #boxDataResultat input:last-of-type { height: 65px; }
+  label { font-size: 0.7rem; }
 }
 
-/* Mode PAYSAGE (Téléphone Horizontal) */
 @media screen and (max-width: 932px) and (orientation: landscape) {
   body { height: auto; }
   header { margin-top: 5px; }
   #imgIRSE, #imgCFC { height: 50px; width: 50px; margin: auto; }
   h1 { font-size: 1.2rem; max-width: 70vw; }
   main { max-width: 650px; width: 95%; }
-
   #boxEltsCalcul, #boxResultat {
     grid-template-columns: 75% 25%; 
   }
-  label { font-size: 0.82rem; }
-  input { height: 24px; }
 }
