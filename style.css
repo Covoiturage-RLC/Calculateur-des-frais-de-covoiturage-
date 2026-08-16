@@ -210,7 +210,7 @@ Box Eléments de Calcul
 #boxLabelResultat, #boxDataResultat {
   display: grid;
   grid-template-rows: auto;
-  row-gap: 15px; /* Ajouté Crée l'espace vertical entre les blocs */
+  row-gap: 12px; /* Ajouté Crée l'espace vertical entre les blocs */
   align-content: start;    /* CORRECTIF : Aligne les éléments vers le haut au lieu de les étirer */
  /* ligne remplacée par start au dessus: align-content: space-between;*/ /* Ajouté Répartit les lignes harmonieusement */
   border: 1px dashed var(--color2);
@@ -221,14 +221,25 @@ Box Eléments de Calcul
   }
 /* On s'assure que les labels et les inputs/données partagent des hauteurs cohérentes */
 #boxLabelResultat label {
-  min-height: 24px;        /* Force une hauteur minimale pour correspondre à celle des boites de data */
+  height: 24px; /* Fixe la hauteur exacte pour correspondre à droite */
+  min-height: 24px;   /* Force une hauteur minimale pour correspondre à celle des boites de data */
   margin: 0;
+  display: flex;
+  align-items: center; /* Aligne le texte au milieu de ses 24px */
 }
 
-#boxDataResultat div, 
-#boxDataResultat input {
-  height: 24px;            /* Aligne la hauteur des boîtes de données sur celle des labels */
-  line-height: 24px;
+/* Cible absolument tous les types de boites de données de votre colonne droite */
+#boxDataResultat input,
+#boxDataResultat div,
+#boxDataResultat span,
+#boxDataResultat p {
+  height: 24px !important; /* Force la hauteur à 24px pour contrer les bordures */
+  line-height: 20px;       /* Ajuste le texte à l'intérieur pour compenser les bordures de 2px */
+  box-sizing: border-box;  /* Inclus la bordure rouge de 2px DANS les 24px de hauteur */
+  margin: 0 auto;          /* Centre proprement les boîtes horizontalement */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
