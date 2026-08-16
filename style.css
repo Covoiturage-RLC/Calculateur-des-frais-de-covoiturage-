@@ -96,13 +96,13 @@ main {
   backdrop-filter: blur(2px); /*non fonctionnel sur Firefox */
 }
 input {
-  width: 50%; /* Légèrement plus large pour le confort visuel au lieu de 30% */
+  width: 30%; /* Légèrement plus large pour le confort visuel au lieu de 30% (proposé 50%) */
   min-width: 60px;
-  height: 24px; /* Remplacer height 20px Hauteur limitée à 24 pour garder un champ fin */
+  height: 20px; /* Remplacer height 20px Hauteur limitée à 24 pour garder un champ fin */
   border: none;
   border-radius: 5px; /* Dessous, margin top auto et ligne margin-bottom auto supprimée */
   text-align: center;
-  margin: auto; /* Rajouté Centre parfaitement l'input verticalement et horizontalement - margin left: auto et margin right: auto supprimée  */
+  margin: 0; /* Rajouté Centre parfaitement l'input verticalement et horizontalement - margin left: auto et margin right: auto supprimée  */
   
 }
 
@@ -154,7 +154,7 @@ Box Eléments de Calcul
   /* supprimé grid-area: bLEC;*/
   display: grid;
   grid-template-rows: auto;
-  row-gap: 12px; /* Ajouté Crée l'espace vertical entre les blocs */
+  row-gap: 10px; /* Ajouté Crée l'espace vertical entre les blocs */
   align-content: space-between; /* Ajouté Répartit les lignes harmonieusement */
   border: 1px dashed var(--color2);
   border-radius: 10px;
@@ -228,7 +228,7 @@ Box Eléments de Calcul
   /* supprimé grid-area: bLEC;*/
   display: grid;
   grid-template-rows: auto;
-  row-gap: 12px; /* Ajouté Crée l'espace vertical entre les blocs */
+  row-gap: 10px; /* Ajouté Crée l'espace vertical entre les blocs */
   align-content: space-between; /* Ajouté Répartit les lignes harmonieusement */
   border: 1px dashed var(--color2);
   border-radius: 10px;
