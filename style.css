@@ -102,7 +102,7 @@ input {
   border: none;
   border-radius: 5px; /* Dessous, margin top auto et ligne margin-bottom auto supprimée */
   text-align: center;
-  margin: 0; /* Rajouté Centre parfaitement l'input verticalement et horizontalement - margin left: auto et margin right: auto supprimée  */
+  margin: auto; /* Rajouté Centre parfaitement l'input verticalement et horizontalement - margin left: auto et margin right: auto supprimée  */
   
 }
 
