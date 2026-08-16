@@ -49,13 +49,13 @@ h1 {
 h3 {
   grid-area: h3;
   margin: auto;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
   color: var(--color1);
 }
 h5 {
   grid-area: h5;
   margin-top: 3px;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
   color: var(--color1);
 }
 h6 {
@@ -141,7 +141,7 @@ Box Eléments de Calcul
   border-radius: 10px;
   margin: 3px;
   padding: 10px;
-  min-height: 280px;
+  min-height: 200px;
   display: grid;
   grid-template-columns: 75% 25%; /* Ajusté pour donner un peu plus de place aux inputs sur PC */
   grid-template-rows: auto auto auto; /* ancienne valeur 10% 80% 10% */
@@ -164,7 +164,7 @@ Box Eléments de Calcul
   border-radius: 10px;
   margin: 3px;
   padding: 8px; /* Modifié Un peu de padding pour respirer au lieu de 5px */
-  min-height: 280px;
+  min-height: 200px;
 }
 #nbVoit, #nbPass, #prxKm, #ctTots, #ctTotv, #ctBpp, #ctRpp, #ctDep12E, #ctRlc {
   user-select: none;
