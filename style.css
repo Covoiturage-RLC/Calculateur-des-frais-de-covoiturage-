@@ -213,7 +213,7 @@ Responsive (Téléphones)
   main { width: 98%; }
   
   #boxEltsCalcul, #boxResultat {
-    grid-template-columns: 85% 15%; /* Laisse un peu plus de place aux inputs sur petit écran - passé de 65-35 à 85-15 */
+    grid-template-columns: 83% 15%; /* Laisse un peu plus de place aux inputs sur petit écran - passé de 65-35 à 85-15 */
     padding: 6px;
     row-gap: 10px;
   }
