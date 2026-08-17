@@ -159,8 +159,8 @@ input {
 #boxDataResultat input:nth-child(2)   { height: 2em; }
 
 /* Ligne 3 : La cagnotte reverse... (Texte long : réduit de 3.8em à 3.2em) */
-#boxLabelResultat label:nth-child(3) { height: 3.2em; }
-#boxDataResultat input:nth-child(3)   { height: 3.2em; }
+#boxLabelResultat label:nth-child(3) { height: 2em; }
+#boxDataResultat input:nth-child(3)   { height: 2em; }
 
 
 /* Bouton de validation */
