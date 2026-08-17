@@ -139,22 +139,28 @@ input {
   SYNCHRONISATION ABSOLUE DES LIGNES (PC & Paysage)
 ----------------------------------------------------*/
 
-/* BLOC ÉLÉMENTS DE CALCUL : Toutes les lignes font 2 lignes de hauteur max */
-#boxLabelEltsCalcul label { height: 2.5em; }
-#boxDataEltsCalcul input   { height: 2.5em; }
+/* Force l'alignement vertical centré des labels face aux inputs */
+#boxLabelEltsCalcul label, #boxLabelResultat label {
+  display: flex;
+  align-items: center;
+}
 
-/* BLOC RÉSULTATS : Hauteurs calibrées sur-mesure pour chaque ligne selon le texte */
-/* Ligne 1 : Coût limité à 12€ (Prend 2 lignes de texte) */
-#boxLabelResultat label:nth-child(1) { height: 2.5em; }
-#boxDataResultat input:nth-child(1)   { height: 2.5em; }
+/* BLOC ÉLÉMENTS DE CALCUL : Hauteur réduite de 2.5em à 2em */
+#boxLabelEltsCalcul label { height: 2em; }
+#boxDataEltsCalcul input   { height: 2em; }
 
-/* Ligne 2 : La cagnotte reçoit... (Prend 2 lignes de texte) */
-#boxLabelResultat label:nth-child(2) { height: 2.5em; }
-#boxDataResultat input:nth-child(2)   { height: 2.5em; }
+/* BLOC RÉSULTATS : Hauteurs réduites et calibrées pour la colonne de droite */
+/* Ligne 1 : Coût limité à 12€ */
+#boxLabelResultat label:nth-child(1) { height: 2em; }
+#boxDataResultat input:nth-child(1)   { height: 2em; }
 
-/* Ligne 3 : La cagnotte reverse... (Texte très long : prend 3 lignes de texte) */
-#boxLabelResultat label:nth-child(3) { height: 3.8em; }
-#boxDataResultat input:nth-child(3)   { height: 3.8em; }
+/* Ligne 2 : La cagnotte reçoit... */
+#boxLabelResultat label:nth-child(2) { height: 2em; }
+#boxDataResultat input:nth-child(2)   { height: 2em; }
+
+/* Ligne 3 : La cagnotte reverse... (Texte long : réduit de 3.8em à 3.2em) */
+#boxLabelResultat label:nth-child(3) { height: 3.2em; }
+#boxDataResultat input:nth-child(3)   { height: 3.2em; }
 
 
 /* Bouton de validation */
