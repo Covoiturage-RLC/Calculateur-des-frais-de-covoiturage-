@@ -95,7 +95,7 @@ main {
   margin-bottom: 15px;
   padding: 10px;
   display: grid;
-  grid-template-columns: 82% 18%; /* Sépare proprement la colonne gauche et droite */
+  grid-template-columns: 85% 15%; /* Sépare proprement la colonne gauche et droite, élargit la colonne gauche et rétrécit la droite */
   grid-template-areas:
     "h3 h3"
     "bLEC bDEC"
