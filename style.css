@@ -213,15 +213,16 @@ Responsive (Téléphones)
   main { width: 98%; }
   
   #boxEltsCalcul, #boxResultat {
-    grid-template-columns: 73% 25%; /* Laisse un peu plus de place aux inputs sur petit écran - passé de 65-35 à 73-25 */
+    grid-template-columns: 78% 20%; /* Laisse un peu plus de place aux inputs sur petit écran - passé de 65-35 à 78-20 */
     padding: 6px;
-    row-gap: 10px;
+    row-gap: 8px; /* passé de 10 à 8 */
   }
   #boxLabelEltsCalcul, #boxLabelResultat, #boxDataEltsCalcul, #boxDataResultat {
-    row-gap: 10px;
+    row-gap: 8px; /* passé de 10 à 8 */
   }
-  
-  label { font-size: 0.72rem; line-height: 1.2; }
+
+  /* passé line-height: 1.2 à 1 */
+  label { font-size: 0.72rem; line-height: 1; }
   input { font-size: 0.78rem; }
   
   /* Ajustement des hauteurs pour les petits écrans verticaux */
@@ -245,7 +246,7 @@ Responsive (Téléphones)
   main { max-width: 650px; width: 95%; }
 
   #boxEltsCalcul, #boxResultat {
-    grid-template-columns: 75% 25%; 
+    grid-template-columns: 80% 20%; /* passé de 75-25 à 80-20 */
   }
   label { font-size: 0.82rem; }
 }
