@@ -256,7 +256,6 @@ Responsive (Téléphones)
   h1 { font-size: 1.2rem; max-width: 70vw; }
   main { max-width: 650px; width: 95%; }
 
-  /* Étape 1 : On conserve la structure globale de votre page */
   #boxEltsCalcul, #boxResultat {
     display: grid !important;
     grid-template-columns: 80% 20% !important; 
@@ -267,7 +266,6 @@ Responsive (Téléphones)
     padding: 10px;
   }
 
-  /* Étape 2 : LA SOLUTION - On transforme les sous-blocs en micro-grilles synchronisées */
   #boxLabelEltsCalcul, #boxLabelResultat { 
     grid-area: bLEC !important; 
     display: grid !important;
@@ -282,27 +280,27 @@ Responsive (Téléphones)
     row-gap: 12px !important;
   }
 
-  /* Étape 3 : On donne une hauteur fixe stricte aux lignes pour forcer l'alignement */
   label { 
     font-size: 0.82rem; 
     line-height: 1.2; 
-    height: 2.4em !important; /* Hauteur fixe pour TOUS les labels */
+    height: 2.4em !important; 
     display: flex !important;
-    align-items: center !important; /* Centre le texte verticalement dans ses 2.4em */
+    align-items: center !important; 
     margin: 0 !important;
   }
 
   input {
     font-size: 0.85rem;
-    height: 2.2em !important; /* Hauteur de l'input légèrement plus petite pour flotter proprement */
-    margin: auto 0 !important; /* Se centre parfaitement dans la cellule de sa grille */
+    height: 2.2em !important; 
+    margin: auto 0 !important; /* Centre automatiquement l'input dans sa case */
   }
 
-  /* Cas particulier : Si la ligne 3 du bas a vraiment besoin de plus de place */
+  /* Ajustement de la ligne double du bas */
   #boxLabelResultat label:nth-child(3) { 
     height: 3.4em !important; 
   }
+  
   #boxDataResultat input:nth-child(3) { 
-    margin-top: 0.6em !important; /* Compense exactement l'agrandissement de la ligne 3 */
+    margin: auto 0 !important; /* CORRECTION : Supprime le décalage forcé vers le bas */
   }
 }
