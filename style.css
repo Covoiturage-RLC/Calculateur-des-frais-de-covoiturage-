@@ -256,30 +256,43 @@ Responsive (Téléphones)
   h1 { font-size: 1.2rem; max-width: 70vw; }
   main { max-width: 650px; width: 95%; }
 
-  /* Recalibrage de la grille pour éviter que la colonne de droite ne glisse vers le bas */
+  /* Étape 1 : On casse la structure en colonnes globales pour lier chaque label à son input */
   #boxEltsCalcul, #boxResultat {
-    grid-template-columns: 80% 20%; 
+    display: grid;
+    grid-template-columns: 80% 20%; /* 80% pour le texte, 20% pour l'input */
     row-gap: 12px;
+    align-items: center; /* Centre verticalement TOUT le contenu de chaque ligne */
   }
 
-  /* Force les deux colonnes à s'aligner dès le départ sur le haut de la grille */
+  /* Étape 2 : On force les conteneurs à se comporter comme de simples intermédiaires transparents */
   #boxLabelEltsCalcul, #boxLabelResultat, #boxDataEltsCalcul, #boxDataResultat { 
-    display: flex;
-    flex-direction: column;
-    row-gap: 12px; /* Espacement identique strict à gauche et à droite */
-    justify-content: flex-start;
+    display: contents !important; 
   }
 
-  label { font-size: 0.82rem; }
+  /* Étape 3 : Nettoyage des styles pour un alignement fluide */
+  label { 
+    font-size: 0.82rem; 
+    grid-column: 1; /* Force le texte dans la colonne de gauche */
+    margin: 0;
+    padding-right: 10px;
+  }
 
-  /* Centre verticalement chaque input de droite en face de la hauteur de son label de gauche */
   input {
-    margin: auto 0;
+    grid-column: 2; /* Force l'input dans la colonne de droite */
+    height: 2.2em !important; /* Hauteur propre et fixe */
+    margin: 0 !important;
   }
 
-  /* Réinitialise les hauteurs spécifiques PC/Paysage pour éviter les conflits */
-  #boxLabelEltsCalcul label, #boxDataEltsCalcul input { height: 2em; }
-  #boxLabelResultat label:nth-child(1), #boxDataResultat input:nth-child(1) { height: 2em; }
-  #boxLabelResultat label:nth-child(2), #boxDataResultat input:nth-child(2) { height: 2em; }
-  #boxLabelResultat label:nth-child(3), #boxDataResultat input:nth-child(3) { height: 2em; }
+  /* Correction de la zone du titre H3 pour qu'il prenne toute la largeur */
+  #boxEltsCalcul h3, #boxResultat h3 {
+    grid-column: 1 / span 2;
+    margin-bottom: 5px;
+  }
+  
+  /* Correction du bouton de validation pour qu'il reste centré en bas */
+  #boxBtnEltsCalcul {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    margin-top: 10px;
+  }
 }
