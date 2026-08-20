@@ -256,8 +256,30 @@ Responsive (Téléphones)
   h1 { font-size: 1.2rem; max-width: 70vw; }
   main { max-width: 650px; width: 95%; }
 
+  /* Recalibrage de la grille pour éviter que la colonne de droite ne glisse vers le bas */
   #boxEltsCalcul, #boxResultat {
-    grid-template-columns: 80% 20%; /* passé de 75-25 à 80-20 */
+    grid-template-columns: 80% 20%; 
+    row-gap: 12px;
   }
+
+  /* Force les deux colonnes à s'aligner dès le départ sur le haut de la grille */
+  #boxLabelEltsCalcul, #boxLabelResultat, #boxDataEltsCalcul, #boxDataResultat { 
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px; /* Espacement identique strict à gauche et à droite */
+    justify-content: flex-start;
+  }
+
   label { font-size: 0.82rem; }
+
+  /* Centre verticalement chaque input de droite en face de la hauteur de son label de gauche */
+  input {
+    margin: auto 0;
+  }
+
+  /* Réinitialise les hauteurs spécifiques PC/Paysage pour éviter les conflits */
+  #boxLabelEltsCalcul label, #boxDataEltsCalcul input { height: 2em; }
+  #boxLabelResultat label:nth-child(1), #boxDataResultat input:nth-child(1) { height: 2em; }
+  #boxLabelResultat label:nth-child(2), #boxDataResultat input:nth-child(2) { height: 2em; }
+  #boxLabelResultat label:nth-child(3), #boxDataResultat input:nth-child(3) { height: 2em; }
 }
