@@ -256,7 +256,6 @@ Responsive (Téléphones)
   h1 { font-size: 1.2rem; max-width: 70vw; }
   main { max-width: 650px; width: 95%; }
 
-  /* Étape 1 : On redéfinit la grille de manière très stricte */
   #boxEltsCalcul, #boxResultat {
     display: grid !important;
     grid-template-columns: 80% 20% !important; 
@@ -267,7 +266,7 @@ Responsive (Téléphones)
     padding: 10px;
   }
 
-  /* Étape 2 : On force le placement côte à côte via les grid-areas */
+  /* Alignement de base des deux blocs */
   #boxLabelEltsCalcul, #boxLabelResultat { 
     grid-area: bLEC !important; 
     display: flex !important;
@@ -282,27 +281,26 @@ Responsive (Téléphones)
     row-gap: 12px !important;
   }
 
-  label { font-size: 0.82rem; line-height: 1.2; }
+  /* ON SUPPRIME LES HAUTEURS FIXES QUI CRÉENT LE DÉCALAGE */
+  #boxLabelEltsCalcul label, 
+  #boxLabelResultat label, 
+  #boxLabelResultat label:nth-child(1),
+  #boxLabelResultat label:nth-child(2),
+  #boxLabelResultat label:nth-child(3) { 
+    height: auto !important; 
+    min-height: 2.2em; /* Assure un espace minimum propre */
+  }
 
-  /* Étape 3 : Alignement et hauteurs fixes */
+  label { 
+    font-size: 0.82rem; 
+    line-height: 1.2; 
+  }
+
+  /* FORCE CHAQUE INPUT À S'ALIGNER FLUIDEMENT SUR LE MILIEU DE SON TEXTE */
   input {
     font-size: 0.85rem;
     height: 2.2em !important;
-    margin: auto 0 !important; 
-  }
-
-  /* Partie Haute : Éléments de Calcul */
-  #boxLabelEltsCalcul label { height: 2.2em; }
-  #boxDataEltsCalcul input   { height: 2.2em; }
-
-  /* Partie Basse : Résultats */
-  #boxLabelResultat label:nth-child(1),
-  #boxLabelResultat label:nth-child(2) { 
-    height: 2.2em; 
-  }
-  
-  /* Ligne double du bas */
-  #boxLabelResultat label:nth-child(3) { 
-    height: 3.4em; 
+    margin: 0 !important; 
+    align-self: center !important; /* L'arme secrète : centre l'input sur la hauteur réelle du texte d'à côté */
   }
 }
