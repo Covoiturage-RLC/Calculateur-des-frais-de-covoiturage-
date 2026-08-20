@@ -256,6 +256,7 @@ Responsive (Téléphones)
   h1 { font-size: 1.2rem; max-width: 70vw; }
   main { max-width: 650px; width: 95%; }
 
+  /* Étape 1 : On conserve la structure globale de votre page */
   #boxEltsCalcul, #boxResultat {
     display: grid !important;
     grid-template-columns: 80% 20% !important; 
@@ -266,41 +267,42 @@ Responsive (Téléphones)
     padding: 10px;
   }
 
-  /* Alignement de base des deux blocs */
+  /* Étape 2 : LA SOLUTION - On transforme les sous-blocs en micro-grilles synchronisées */
   #boxLabelEltsCalcul, #boxLabelResultat { 
     grid-area: bLEC !important; 
-    display: flex !important;
-    flex-direction: column !important;
+    display: grid !important;
+    grid-template-columns: 100% !important;
     row-gap: 12px !important;
   }
 
   #boxDataEltsCalcul, #boxDataResultat { 
     grid-area: bDEC !important; 
-    display: flex !important;
-    flex-direction: column !important;
+    display: grid !important;
+    grid-template-columns: 100% !important;
     row-gap: 12px !important;
   }
 
-  /* ON SUPPRIME LES HAUTEURS FIXES QUI CRÉENT LE DÉCALAGE */
-  #boxLabelEltsCalcul label, 
-  #boxLabelResultat label, 
-  #boxLabelResultat label:nth-child(1),
-  #boxLabelResultat label:nth-child(2),
-  #boxLabelResultat label:nth-child(3) { 
-    height: auto !important; 
-    min-height: 2.2em; /* Assure un espace minimum propre */
-  }
-
+  /* Étape 3 : On donne une hauteur fixe stricte aux lignes pour forcer l'alignement */
   label { 
     font-size: 0.82rem; 
     line-height: 1.2; 
+    height: 2.4em !important; /* Hauteur fixe pour TOUS les labels */
+    display: flex !important;
+    align-items: center !important; /* Centre le texte verticalement dans ses 2.4em */
+    margin: 0 !important;
   }
 
-  /* FORCE CHAQUE INPUT À S'ALIGNER FLUIDEMENT SUR LE MILIEU DE SON TEXTE */
   input {
     font-size: 0.85rem;
-    height: 2.2em !important;
-    margin: 0 !important; 
-    align-self: center !important; /* L'arme secrète : centre l'input sur la hauteur réelle du texte d'à côté */
+    height: 2.2em !important; /* Hauteur de l'input légèrement plus petite pour flotter proprement */
+    margin: auto 0 !important; /* Se centre parfaitement dans la cellule de sa grille */
+  }
+
+  /* Cas particulier : Si la ligne 3 du bas a vraiment besoin de plus de place */
+  #boxLabelResultat label:nth-child(3) { 
+    height: 3.4em !important; 
+  }
+  #boxDataResultat input:nth-child(3) { 
+    margin-top: 0.6em !important; /* Compense exactement l'agrandissement de la ligne 3 */
   }
 }
