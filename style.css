@@ -217,31 +217,39 @@ Responsive (Téléphones)
     padding: 6px;
     row-gap: 8px; 
   }
+  
+  /* Supprime l'écart global pour laisser les hauteurs des lignes gérer l'espace */
   #boxLabelEltsCalcul, #boxLabelResultat, #boxDataEltsCalcul, #boxDataResultat {
-    row-gap: 8px; 
+    row-gap: 0px; 
+    display: flex;
+    flex-direction: column;
   }
 
-  label { font-size: 0.72rem; line-height: 1; }
-  input { font-size: 0.78rem; }
+  label { font-size: 0.72rem; line-height: 1.1; }
+  input { font-size: 0.78rem; height: 2.2em !important; } /* Force une hauteur de bloc propre et réduite */
   
-  /* On force le centrage vertical parfait des inputs de droite dans leur espace flex */
+  /* Ajuste le centrage vertical des inputs dans leur propre espace attribué */
   #boxDataEltsCalcul, #boxDataResultat {
-    justify-content: space-around; 
+    justify-content: flex-start;
   }
 
-  /* BLOC ÉLÉMENTS DE CALCUL */
-  #boxLabelEltsCalcul label { height: 3.2em; }
-  #boxDataEltsCalcul input   { height: 2em; } /* Hauteur de l'input diminuée */
+  /* --- SYNCHRONISATION PARFAITE DES LIGNES --- */
   
-  /* BLOC RÉSULTATS */
-  #boxLabelResultat label:nth-child(1) { height: 3.2em; }
-  #boxDataResultat input:nth-child(1)   { height: 2em; } /* Hauteur de l'input diminuée */
+  /* Bloc Éléments de Calcul */
+  #boxLabelEltsCalcul label { height: 3.2em; margin-bottom: 8px; }
+  #boxDataEltsCalcul input   { margin-bottom: 8px; }
   
-  #boxLabelResultat label:nth-child(2) { height: 4.2em; }
-  #boxDataResultat input:nth-child(2)   { height: 2em; } /* Hauteur de l'input diminuée */
+  /* Bloc Résultats - Ligne 1 */
+  #boxLabelResultat label:nth-child(1) { height: 3.2em; margin-bottom: 8px; }
+  #boxDataResultat input:nth-child(1)   { margin-bottom: 8px; }
   
+  /* Bloc Résultats - Ligne 2 (Double ligne) */
+  #boxLabelResultat label:nth-child(2) { height: 4.2em; margin-bottom: 8px; }
+  #boxDataResultat input:nth-child(2)   { margin-top: 1.1em; margin-bottom: 8px; } /* Compense l'écart de la double ligne */
+  
+  /* Bloc Résultats - Ligne 3 (Triple ligne / Longue) */
   #boxLabelResultat label:nth-child(3) { height: 5.5em; }
-  #boxDataResultat input:nth-child(3)   { height: 2em; } /* Hauteur de l'input diminuée */
+  #boxDataResultat input:nth-child(3)   { margin-top: 1.6em; } /* Compense l'écart du grand texte */
 }
 
 /* Mode PAYSAGE (Téléphone Horizontal : Confort identique au PC) */
