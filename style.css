@@ -297,7 +297,7 @@ Responsive (Téléphones)
 
   /* Ajustement de la ligne double du bas */
   #boxLabelResultat label:nth-child(3) { 
-    height: 3em !important; 
+    height: 2.43em !important; 
   }
   
   #boxDataResultat input:nth-child(3) { 
