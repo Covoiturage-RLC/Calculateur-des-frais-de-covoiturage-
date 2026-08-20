@@ -213,28 +213,35 @@ Responsive (Téléphones)
   main { width: 98%; }
   
   #boxEltsCalcul, #boxResultat {
-    grid-template-columns: 78% 20%; /* Laisse un peu plus de place aux inputs sur petit écran - passé de 65-35 à 78-20 */
+    grid-template-columns: 78% 20%; 
     padding: 6px;
-    row-gap: 8px; /* passé de 10 à 8 */
+    row-gap: 8px; 
   }
   #boxLabelEltsCalcul, #boxLabelResultat, #boxDataEltsCalcul, #boxDataResultat {
-    row-gap: 8px; /* passé de 10 à 8 */
+    row-gap: 8px; 
   }
 
-  /* passé line-height: 1.2 à 1 */
   label { font-size: 0.72rem; line-height: 1; }
   input { font-size: 0.78rem; }
   
-  /* Ajustement des hauteurs pour les petits écrans verticaux */
+  /* On force le centrage vertical parfait des inputs de droite dans leur espace flex */
+  #boxDataEltsCalcul, #boxDataResultat {
+    justify-content: space-around; 
+  }
+
+  /* BLOC ÉLÉMENTS DE CALCUL */
   #boxLabelEltsCalcul label { height: 3.2em; }
-  #boxDataEltsCalcul input   { height: 3.2em; }
+  #boxDataEltsCalcul input   { height: 2em; } /* Hauteur de l'input diminuée */
   
+  /* BLOC RÉSULTATS */
   #boxLabelResultat label:nth-child(1) { height: 3.2em; }
-  #boxDataResultat input:nth-child(1)   { height: 3.2em; }
+  #boxDataResultat input:nth-child(1)   { height: 2em; } /* Hauteur de l'input diminuée */
+  
   #boxLabelResultat label:nth-child(2) { height: 4.2em; }
-  #boxDataResultat input:nth-child(2)   { height: 4.2em; }
+  #boxDataResultat input:nth-child(2)   { height: 2em; } /* Hauteur de l'input diminuée */
+  
   #boxLabelResultat label:nth-child(3) { height: 5.5em; }
-  #boxDataResultat input:nth-child(3)   { height: 5.5em; }
+  #boxDataResultat input:nth-child(3)   { height: 2em; } /* Hauteur de l'input diminuée */
 }
 
 /* Mode PAYSAGE (Téléphone Horizontal : Confort identique au PC) */
