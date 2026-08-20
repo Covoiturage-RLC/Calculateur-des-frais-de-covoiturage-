@@ -256,6 +256,7 @@ Responsive (Téléphones)
   h1 { font-size: 1.2rem; max-width: 70vw; }
   main { max-width: 650px; width: 95%; }
 
+  /* Étape 1 : Grille principale globale */
   #boxEltsCalcul, #boxResultat {
     display: grid !important;
     grid-template-columns: 80% 20% !important; 
@@ -266,41 +267,47 @@ Responsive (Téléphones)
     padding: 10px;
   }
 
-  #boxLabelEltsCalcul, #boxLabelResultat { 
-    grid-area: bLEC !important; 
+  /* Étape 2 : Grille pour la partie haute (6 lignes simples) */
+  #boxLabelEltsCalcul, #boxDataEltsCalcul { 
     display: grid !important;
     grid-template-columns: 100% !important;
+    grid-template-rows: repeat(6, 2.4em) !important; /* 6 lignes identiques */
     row-gap: 12px !important;
   }
+  #boxLabelEltsCalcul { grid-area: bLEC !important; }
+  #boxDataEltsCalcul { grid-area: bDEC !important; }
 
-  #boxDataEltsCalcul, #boxDataResultat { 
-    grid-area: bDEC !important; 
+  /* Étape 3 : Grille pour la partie basse (2 lignes simples + 1 ligne double) */
+  #boxLabelResultat, #boxDataResultat { 
     display: grid !important;
     grid-template-columns: 100% !important;
+    grid-template-rows: 2.4em 2.4em 3.4em !important; /* Verrouille la hauteur de la ligne 3 à gauche ET à droite */
     row-gap: 12px !important;
   }
+  #boxLabelResultat { grid-area: bLEC !important; }
+  #boxDataResultat { grid-area: bDEC !important; }
 
+  /* Étape 4 : Alignement du contenu dans les cellules de la grille */
   label { 
     font-size: 0.82rem; 
     line-height: 1.2; 
-    height: 2.4em !important; 
+    height: 100% !important; /* Prend toute la hauteur de la cellule définie au-dessus */
     display: flex !important;
-    align-items: center !important; 
+    align-items: center !important; /* Centre le texte verticalement */
     margin: 0 !important;
   }
 
   input {
     font-size: 0.85rem;
-    height: 2.2em !important; 
-    margin: auto 0 !important; /* Centre automatiquement l'input dans sa case */
+    height: 2.2em !important; /* Garde sa petite taille propre */
+    margin: auto 0 !important; /* Se centre mathématiquement dans la cellule de sa ligne */
   }
 
-  /* Ajustement de la ligne double du bas */
-  #boxLabelResultat label:nth-child(3) { 
-    height: 2.43em !important; 
-  }
-  
-  #boxDataResultat input:nth-child(3) { 
-    margin: auto 0 !important; /* CORRECTION : Supprime le décalage forcé vers le bas */
+  /* Nettoyage des styles individuels précédents pour éviter les conflits */
+  #boxLabelEltsCalcul label, #boxDataEltsCalcul input,
+  #boxLabelResultat label:nth-child(1), #boxLabelResultat label:nth-child(2), 
+  #boxLabelResultat label:nth-child(3), #boxDataResultat input:nth-child(3) {
+    height: unset;
+    margin-top: unset;
   }
 }
