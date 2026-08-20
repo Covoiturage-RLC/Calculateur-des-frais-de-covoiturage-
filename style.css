@@ -256,44 +256,53 @@ Responsive (Téléphones)
   h1 { font-size: 1.2rem; max-width: 70vw; }
   main { max-width: 650px; width: 95%; }
 
-  /* Structure globale en deux colonnes face à face */
+  /* Étape 1 : On redéfinit la grille de manière très stricte */
   #boxEltsCalcul, #boxResultat {
-    display: grid;
-    grid-template-columns: 80% 20%; 
+    display: grid !important;
+    grid-template-columns: 80% 20% !important; 
+    grid-template-areas:
+      "h3 h3"
+      "bLEC bDEC"
+      "bBEC bBEC" !important;
     padding: 10px;
   }
 
-  /* Force les blocs de gauche et de droite à avoir exactement le même comportement Flex */
-  #boxLabelEltsCalcul, #boxLabelResultat, #boxDataEltsCalcul, #boxDataResultat { 
-    display: flex;
-    flex-direction: column;
-    row-gap: 12px; /* Espace strict et identique entre chaque ligne */
+  /* Étape 2 : On force le placement côte à côte via les grid-areas */
+  #boxLabelEltsCalcul, #boxLabelResultat { 
+    grid-area: bLEC !important; 
+    display: flex !important;
+    flex-direction: column !important;
+    row-gap: 12px !important;
+  }
+
+  #boxDataEltsCalcul, #boxDataResultat { 
+    grid-area: bDEC !important; 
+    display: flex !important;
+    flex-direction: column !important;
+    row-gap: 12px !important;
   }
 
   label { font-size: 0.82rem; line-height: 1.2; }
 
-  /* Force chaque input à se centrer verticalement dans l'espace de sa ligne */
+  /* Étape 3 : Alignement et hauteurs fixes */
   input {
     font-size: 0.85rem;
     height: 2.2em !important;
     margin: auto 0 !important; 
   }
 
-  /* --- SYNCHRONISATION TRÈS STRICTE DES HAUTEURS EN PAYSAGE --- */
-
-  /* Partie Haute : Éléments de Calcul (On force tous les blocs à la même hauteur) */
+  /* Partie Haute : Éléments de Calcul */
   #boxLabelEltsCalcul label { height: 2.2em; }
   #boxDataEltsCalcul input   { height: 2.2em; }
 
   /* Partie Basse : Résultats */
-  /* Ligne 1 et Ligne 2 */
   #boxLabelResultat label:nth-child(1),
   #boxLabelResultat label:nth-child(2) { 
     height: 2.2em; 
   }
   
-  /* Ligne 3 (La ligne double du bas qui provoquait le décalage) */
+  /* Ligne double du bas */
   #boxLabelResultat label:nth-child(3) { 
-    height: 3.4em; /* On lui donne plus d'espace pour ses 2 lignes de texte */
+    height: 3.4em; 
   }
 }
